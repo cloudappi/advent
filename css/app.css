@@ -1,0 +1,301 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fascinate&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+
+body {
+    background: url("../img/background.jpg") no-repeat center center fixed;
+    color: #fff;
+    font-family: 'Pacifico', cursive;
+    padding: 20px;
+    font-weight: 400;
+    filter: drop-shadow(0 0 2px white);
+}
+
+h1 {
+    margin: 0;
+    font-size: 75px;
+    line-height: 75px;
+    text-align: center;
+    font-weight: 400;
+    text-shadow: 2px 2px 2px black;
+}
+
+name-day {
+    font-family: 'Fascinate', cursive;
+    font-size: 30px;
+    text-align: center;
+}
+
+h2 {
+    margin: 0;
+    font-size: 35px;
+    line-height: 75px;
+    text-align: center;
+    font-weight: 100;
+    text-shadow: 2px 2px 2px black;
+}
+
+h3 {
+    margin: 1px 0 5px;
+    font-size: 25px;
+    text-align: center;
+    text-shadow: 2px 2px 2px rgba(181, 181, 181, 1);
+}
+
+h4 {
+    font-family: 'Handlee', cursive;
+    margin: 0 0 5px;
+    font-size: 18px;
+    text-align: center;
+}
+
+h5 {
+    margin: 0 0 5px;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px white;
+}
+
+ul {
+    margin: 0 auto 10px auto;
+    padding: 0;
+    list-style-type: none;
+    max-width: 1500px;
+    width: 100%;
+    text-align: center;
+    user-select: none;
+}
+
+li {
+    font-weight: 400;
+    background-color: #fff;
+    box-sizing: border-box;
+    border-radius: 6px;
+    display: inline-block;
+    color: #111;
+    cursor: pointer;
+    font-size: 26px;
+    padding: 15px;
+    margin: 25px 12px;
+    width: 200px;
+    height: 275px;
+    text-align: center;
+    position: relative;
+    vertical-align: top;
+    user-select: none;
+    perspective: 800px;
+    transition: all 0.4s ease-in-out;
+}
+
+ul li:last-child {
+    background-size: cover;
+    display: block;
+    clear: both;
+    margin: 20px auto 0 auto;
+    width: 250px;
+    height: 250px;
+}
+
+    ul li:last-child .door {
+        font-size: 100px;
+        width: 255px;
+        height: 255px;
+        line-height: 240px;
+    }
+
+    ul li:last-child .revealed {
+        line-height: 123px;
+    }
+
+.door {
+    font-family: 'Monoton', cursive;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+    user-select: none;
+    color: #fff;
+    font-size: 90px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #91c1cc;
+    box-sizing: border-box;
+    border: 4px double;
+    padding: 15px;
+    width: 200px;
+    height: 275px;
+    transform-origin: 0 40%;
+    transition: all 0.4s ease-in-out;
+    transform-style: preserve-3d;
+}
+
+.door1 {
+    background: url("../img/door1.jpeg") center;
+}
+
+.door2 {
+    background: url("../img/door2.jpeg") center;
+}
+
+.door3 {
+    background: url("../img/door3.jpeg") center;
+}
+
+.door4 {
+    background: url("../img/door4.jpeg") center;
+}
+
+.door5 {
+    background: url("../img/door5.jpeg") center;
+}
+
+.door6 {
+    background: url("../img/door6.jpeg") center;
+}
+
+.door7 {
+    background: url("../img/door7.jpeg") center;
+}
+
+.door8 {
+    background: url("../img/door8.jpeg") center;
+}
+
+.door9 {
+    background: url("../img/door9.jpeg") center;
+}
+
+.door10 {
+    background: url("../img/door10.jpeg") center;
+}
+
+.door11 {
+    background: url("../img/door11.jpg") center;
+}
+
+.door12 {
+    background: url("../img/door12.jpeg") center;
+}
+
+.door13 {
+    background: url("../img/door13.jpeg") center;
+}
+
+.door14 {
+    background: url("../img/door14.jpeg") center;
+}
+
+.door15 {
+    background: url("../img/door15.jpeg") center;
+}
+
+.door16 {
+    background: url("../img/door16.jpeg") center;
+}
+
+.door17 {
+    background: url("../img/door17.jpeg") center;
+}
+
+.door18 {
+    background: url("../img/door18.jpeg") center;
+}
+
+.door19 {
+    background: url("../img/door19.jpeg") center;
+}
+
+.door20 {
+    background: url("../img/door20.jpeg") center;
+}
+
+.door21 {
+    background: url("../img/door21.jpeg") center;
+}
+
+.door22 {
+    background: url("../img/door22.jpeg") center;
+}
+
+.door23 {
+    background: url("../img/door23.jpeg") center;
+}
+
+.door24 {
+    background: url("../img/door24.jpeg") center;
+}
+
+.door25 {
+    background: url("../img/door25.jpeg") center top;
+}
+
+
+.current .door {
+    background-color: #7EAD44;
+}
+
+    .current .door.open {
+        color: #7EAD44;
+    }
+
+.revealed {
+    user-select: none;
+}
+
+#message {
+    box-sizing: border-box;
+    color: #222;
+    display: none;
+    font-size: 24px;
+    padding: 20px;
+    background: #eddecb;
+    max-width: 500px;
+    width: 100%;
+    border-radius: 15px;
+    margin: 0 auto;
+}
+
+.open {
+    box-shadow: 14px 0px 15px -1px rgba(0,0,0,0.2);
+    color: #91c1cc;
+    transform: rotate3d(0, 1, 0, -98deg);
+}
+
+.jiggle {
+    animation: jiggle 0.2s infinite;
+    transform: rotate(-1deg);
+}
+
+@keyframes jiggle {
+    0% {
+        transform: rotate(-1deg);
+    }
+
+    50% {
+        transform: rotate(1deg);
+    }
+}
+
+@media screen and (min-width: 480px) {
+    li {
+        margin: 25px 35px;
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+    body {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    p {
+        right: 6%;
+        top: 20%;
+        bottom: auto;
+        margin-left: auto;
+        left: auto;
+    }
+}
