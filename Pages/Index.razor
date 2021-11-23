@@ -1,0 +1,129 @@
+﻿@page "/"
+@inject IJSRuntime js
+@using Core
+
+
+<head>
+    <title>@randomEmoji() @date.ToString("dd-MMMM-yyyy", CultureInfo.CreateSpecificCulture("ES"))</title>
+</head>
+
+
+<div class="snowflakes" aria-hidden="true">
+    @for(int x = 0; x < 10; x++)
+    {
+            <div class="snowflake">@randomFlakes()</div>
+    }
+</div>
+
+<h1>Feliz Navidad en <img src="img/logo.png" height="50"></h1>
+<h2> Acompañanos cada dia para descubrir algo Tecky. @randomEmoji()</h2>
+<h1>@randomEmoji() @fullMonthName @date.Year @randomEmoji()</h1>
+    <ul>
+        <li><div class="door door1"><div>1</div><name-day>@nameByIndex(1)</name-day></div></li>
+        <li><div class="door door2"><div>2</div><name-day>@nameByIndex(2)</name-day></div></li>
+        <li><div class="door door3"><div>3</div><name-day>@nameByIndex(3)</name-day></div></li>
+        <li><div class="door door4"><div>4</div><name-day>@nameByIndex(4)</name-day></div></li>
+        <li><div class="door door5"><div>5</div><name-day>@nameByIndex(5)</name-day></div></li>
+        <li><div class="door door6"><div>6</div><name-day>@nameByIndex(6)</name-day></div></li>
+        <li><div class="door door7"><div>7</div><name-day>@nameByIndex(7)</name-day></div></li>
+        <li><div class="door door8"><div>8</div><name-day>@nameByIndex(8)</name-day></div></li>
+        <li><div class="door door9"><div>9</div><name-day>@nameByIndex(9)</name-day></div></li>
+        <li><div class="door door10"><div>10</div><name-day>@nameByIndex(10)</name-day></div></li>
+        <li><div class="door door11"><div>11</div><name-day>@nameByIndex(11)</name-day></div></li>
+        <li><div class="door door12"><div>12</div><name-day>@nameByIndex(12)</name-day></div></li>
+        <li><div class="door door13"><div>13</div><name-day>@nameByIndex(13)</name-day></div></li>
+        <li><div class="door door14"><div>14</div><name-day>@nameByIndex(14)</name-day></div></li>
+        <li><div class="door door15"><div>15</div><name-day>@nameByIndex(15)</name-day></div></li>
+        <li><div class="door door16"><div>16</div><name-day>@nameByIndex(16)</name-day></div></li>
+        <li><div class="door door17"><div>17</div><name-day>@nameByIndex(17)</name-day></div></li>
+        <li><div class="door door18"><div>18</div><name-day>@nameByIndex(18)</name-day></div></li>
+        <li><div class="door door19"><div>19</div><name-day>@nameByIndex(19)</name-day></div></li>
+        <li><div class="door door20"><div>20</div><name-day>@nameByIndex(20)</name-day></div></li>
+        <li><div class="door door21"><div>21</div><name-day>@nameByIndex(21)</name-day></div></li>
+        <li><div class="door door22"><div>22</div><name-day>@nameByIndex(22)</name-day></div></li>
+        <li><div class="door door23"><div>23</div><name-day>@nameByIndex(23)</name-day></div></li>
+        <li><div class="door door24"><div>24</div><name-day>@nameByIndex(24)</name-day></div></li>
+        <li><div class="door door25">25</div></li>
+    </ul>
+
+    <p id="message"></p>
+    
+
+
+    @inject IJSRuntime JSRuntime
+    @using System.Globalization;
+    @code{
+
+        private string[] videos = { "u2Ms34GE14U", "4fZKFQjkNw0", "SbhzQqP1p70", "JD6VNRdGl98" };
+        private DateTime date  = new DateTime(2021,12,5);
+        //private DateTime date  = DateTime.Now;
+        TextInfo myTI = new CultureInfo("en-US",false).TextInfo;
+        private string fullMonthName = new DateTime(2021, 12, 1).ToString("MMMM", CultureInfo.CreateSpecificCulture("ES"));
+        private string[] emojis = { "🎅", "🤶", "⛄", "🦌", "🌟", "❄️", "🎁", "🎄", "🔔" , "🧦", "🍪", "👼", "🤖", "💻" };
+        private string[] flakes = { "❅","❅","❅","❆","❆","❆","❆","❅","🎁" };
+
+        private string nameByIndex(int day)
+        {
+            DateTime dateValue = new DateTime(date.Year, 12, day);
+            return dateValue.ToString("dddd", new CultureInfo("es-ES"));
+        }
+
+        private string randomEmoji()
+        {
+            return emojis[Util.random(emojis.Length)];
+        }
+
+        private string randomFlakes()
+        {
+            return flakes[Util.random(flakes.Length)];
+        }
+
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            if (firstRender)
+            {
+               
+                fullMonthName = myTI.ToTitleCase(fullMonthName);
+                List<string> items = new List<string>();
+                items.Add("<h4>Descubre cada día un micro ejemplo, curiosidad o herramienta que te ayudará en nuestro mundo Api.</h4> <img src=\"../img/logo2.png\" width=\"150px\">");
+                items.Add("<img src=\"https://www.campusmvp.es/recursos/image.axd?picture=/2017/NET-Core-Logo.png\" width=\"150px\" style=\"margin:10px\"><h4>En noviembre de 2021 se lanzo la primera realease de .NET 6 junto a VisualStudio 2022 incluyendo nuevas mejoras.</h4><a target=\"_blank\" href=\"https://dotnet.microsoft.com/download/dotnet/6.0\">+Info</a>");
+                items.Add("<img src=\"../img/github-pages-logo.png\" width=\"150px\" style=\"margin:10px\"><h4>Aloja una pagina directamente en un repositorio de GitHub sin necesidad de un servidor, ¿un ejemplo?, este calendario.</h4><a target=\"_blank\" href=\"https://pages.github.com/\">+Info</a>");
+                items.Add("<img src=\"../img/OpenAI_Logo.png\" width=\"150px\" style=\"margin:10px\"></br><h4>El lenguaje inteligente GPT-3 fue liberado. Te permite generar textos que simulan la redacción humana. ¿Ya lo has probado?</h4><a target=\"_blank\" href=\"https://es.wikipedia.org/wiki/GPT-3\">+Info</a>");
+                items.Add("<a href=\"https://www.openstreetmap.org\" target=\"_blank\">OpenStreetMap</a><h4>¿Es posible insertar un mapa funcional en un espacio tan limitado?.</h4><iframe width=\"150\" height=\"150\" src =\"https://www.openstreetmap.org/export/embed.html?bbox=-27.861328125%2C31.55981453201843%2C8.833007812500002%2C46.392411189814645&amp;layer=mapnik\"></iframe>");
+                items.Add("<a href=\"https://picsum.photos\"  target=\"_blank\" > Lorem picsum</a><h4>Te dejo una imagen aleatoria.</h4> <img src=\"https://picsum.photos/150/150\">");
+                items.Add("<img src=\"../img/blazor-logo.png\" width=\"100px\"><h4>Blazor es una tecnologia hibrida para tener front y back en uno solo, este calendario usa su version WASM.</h4><a target=\"_blank\" href =\"https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor\">+Info</a>");
+                
+                
+                items.Add("<h3>Api Testing</h3><h4>Testea las apis de una forma comoda y directa.</h4><a target=\"_blank\" href=\"https://insomnia.rest\"><img src=\"../img/insomnia.png\" width=\"150px\"></a><a target=\"_blank\" href=\"https://www.postman.com\"><img src=\"../img/postman.png\" width=\"150px\"></a>");
+                items.Add("<h3>Clientes BBDD</h3><h4>Gestiona bases de datos.</h4><a target=\"_blank\" href=\"https://dbeaver.io\"><img src=\"../img/dbeaver.png\" width=\"150px\"></a><a target=\"_blank\" href=\"https://robomongo.org\"><img src=\"../img/robo3t.png\" width=\"150px\"></a>");
+                items.Add("<h4>Facebook como padrino y de lo mas usado en el mundo Front.</h4><br>Node<br><br><a target=\"_blank\" href =\"https://es.reactjs.org\"><img src=\"../img/react-logo.png\" width=\"120px\"></a>");
+                items.Add("<h3>Api Addicts</h3><h4>Descubre una de las mayores comunidades de habla hispana de este mundillo.</h4><br><a target=\"_blank\" href =\"https://www.apiaddicts.org/\"><img src=\"../img/api_addicts.png\" width=\"150px\"></a>");
+                items.Add("<h3>Swagger</h3><h4>Diseñar, construir, documentar, y utilizar servicios web RESTful.</h4><br><a target=\"_blank\" href =\"https://swagger.io/\"><img src=\"../img/swagger-logo.png\" width=\"80px\"></a>");
+                items.Add("<h3>Despligue Cloud</h3><h4>El futuro de los contenedores.</h4><a target=\"_blank\" href=\"https://www.docker.com\"><img src=\"../img/docker.png\" width=\"150px\"></a><a target=\"_blank\" href=\"https://kubernetes.io\"><img src=\"../img/kubernetes.png\" width=\"150px\"></a>");
+                items.Add("<h3>Editores</h3><h4>Multilenguaje, multiplataforma y muy ligeros.</h4><a target=\"_blank\" href=\"https://code.visualstudio.com\"><img src=\"../img/visualcode.png\" width=\"150px\"></a><a target=\"_blank\" href=\"https://www.sublimetext.com\"><img src=\"../img/sublimetext.png\" width=\"150px\"></a>");
+                items.Add("<h3>Api Managers</h3><h4>Controla y gestiona tus apis (seguridad, acceso, roles).</h4><a target=\"_blank\" href=\"https://konghq.com\"><br><img src=\"../img/kong-logo.png\" width=\"120px\"></a><a target=\"_blank\" href=\"https://wso2.com\"><img src=\"../img/wso2-logo.png\" width=\"100px\"></a>");
+                items.Add("<h4>Rápido, seguro y poco código para hacer grandes microservicios.</h4><br>Python<br><br><a target=\"_blank\" href =\"https://www.djangoproject.com\"><img src=\"../img/django-logo.png\" width=\"120px\"></a>");
+                items.Add("<a href=\"https://developers.google.com/youtube/v3\" target=\"_blank\">Youtube Api</a><h4>Un video como aprendizaje.</h4><iframe width=\"150\" height=\"150\"  src=\"https://www.youtube.com/embed/" + videos[Util.random(videos.Length)] + "?autoplay=0\" frameborder =\"0\" allowfullscreen></iframe>");
+                items.Add("<h3>Ninja Talent</h3><h4>Si quieres evaluarte o mostrar lo que sabes, preparate para ser el mejor ninja.</h4><br><a target=\"_blank\" href =\"https://ninjatalent.net/\"><img src=\"../img/ninja_talent.png\" width=\"150px\"></a>");
+                items.Add("<h3>GraphQL</h3><h4>Una nueva forma de comunicación entre APIs.</h4><br><a target=\"_blank\" href =\"https://graphql.org/\"><img src=\"../img/graphql.png\" width=\"170px\"></a>");
+                items.Add("<h3>Repositorios</h3><h4>Guarda tu codigo y mantenlo seguro.</h4><a target=\"_blank\" href=\"https://github.com\"><img src=\"../img/github.png\" width=\"150px\"></a><a target=\"_blank\" href=\"https://about.gitlab.com\"><img src=\"../img/gitlab.png\" width=\"130px\"></a>");
+                items.Add("<h3>Elasticsearch</h3><h4>Motor de búsqueda de texto completo, distribuido y con analítica.</h4><a target=\"_blank\" href=\"https://www.elastic.co/es/elasticsearch\"><img src=\"../img/elasticsearch-logo.png\" width=\"180px\">");
+                items.Add("<h4>Versatil, solido y con una documentacion muy completa.</h4><br>Java<br><br><a target=\"_blank\" href =\"https://spring.io/projects/spring-boot\"><img src=\"../img/spring-boot-logo.png\" width=\"120px\"></a>");
+                items.Add("<h3>SonarQube</h3><h4>Descubre fallos en tu código y dejalo mas limpio, eficiente y mejorado.</h4><a target=\"_blank\" href=\"https://www.sonarqube.org\"><img src=\"../img/sonarqube.png\" width=\"150px\">");
+                items.Add("<h3>Electron</h3><h4>Desarrollo de aplicaciones gráficas de escritorio usando componentes.</h4><br><a target=\"_blank\" href =\"https://www.electronjs.org/\"><img src=\"../img/electron.png\" width=\"60px\"></a>");
+               
+                items.Add("<h4>Si aun te has quedado con ganas visita nuestro blog y descubre tecnologias punteras. ¡FELICES FIESTAS!</h4><a target=\"_blank\" href=\"https://www.cloudappi.net/blog/nuestro-blog-1\"><img src=\"../img/logo2.png\" width=\"180px\">");
+
+                List<string> control_items = new List<string>();
+                for (int i = 0; i < date.Day && i <= 25 && i < items.Count(); i++)
+                    control_items.Add(items[i]);
+
+                for (int i = date.Day; i < 25; i++)
+                    control_items.Add($"Tendras que esperar {i + 1 - date.Day} dias.");
+
+
+                await js.InvokeAsync<object>("controls", date.Day, date.Month, control_items);
+                StateHasChanged();
+            }
+        }
+    }
