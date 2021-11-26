@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
 
 body {
-    background: url("../img/background.jpg") no-repeat center center fixed;
+    background: linear-gradient( rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25) ), url("../img/background.jpg") no-repeat center center fixed;
     color: #fff;
     font-family: 'Pacifico', cursive;
     padding: 20px;
@@ -19,6 +19,10 @@ h1 {
     text-align: center;
     font-weight: 400;
     text-shadow: 2px 2px 2px black;
+}
+
+h1:focus{
+    outline: none
 }
 
 name-day {
@@ -46,7 +50,7 @@ h3 {
 h4 {
     font-family: 'Handlee', cursive;
     margin: 0 0 5px;
-    font-size: 18px;
+    font-size: 17px;
     text-align: center;
 }
 
